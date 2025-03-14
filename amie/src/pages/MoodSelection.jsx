@@ -45,25 +45,22 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
   const [selectedMood, setSelectedMood] = useState(null);
   const [showModal, setShowModal] = useState(false);
   const [ventText, setVentText] = useState('');
-
-  // Keep track of the ID of the most recently added mood log
   const [lastLogId, setLastLogId] = useState(null);
 
   const handleMoodClick = (mood) => {
-    // Immediately log this mood
+    // Log the mood immediately with the corrected date format (DD MMM)
     const now = new Date();
-    const dateStr = now.toLocaleDateString('en-US', {
-      day: '2-digit',
-      month: 'short',
-    }).toUpperCase(); // e.g. "14 MAR"
+    const day = now.getDate().toString().padStart(2, '0');
+    const month = now.toLocaleString('en-US', { month: 'short' }).toUpperCase();
+    const dateStr = `${day} ${month}`; // e.g. "14 MAR"
+
     const timeStr = now.toLocaleTimeString('en-US', {
       hour: '2-digit',
       minute: '2-digit',
     });
 
-    // Create a unique ID so we can update the note later if the user vents
     const newLog = {
-      id: Date.now(), // or any unique ID
+      id: Date.now(), // Unique ID
       date: dateStr,
       time: timeStr,
       mood: mood.label,
@@ -74,27 +71,24 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
     setMoodLogs((prevLogs) => [...prevLogs, newLog]);
     setLastLogId(newLog.id);
 
-    // Show "Your feeling has been logged" on that card
+    // Indicate that this mood has been logged
     setSelectedMood(mood.label);
-
-    // Open the modal
     setShowModal(true);
   };
 
   const handleExercise = () => {
-    // Navigate to the ComingSoon page
+    // Navigate to the ComingSoon page for the exercise feature
     navigate('/coming-soon');
   };
 
   const handleVentSubmit = () => {
-    // Update the note for the last logged mood
+    // Update the note for the most recent mood log
     setMoodLogs((prevLogs) =>
       prevLogs.map((log) =>
         log.id === lastLogId ? { ...log, note: ventText } : log
       )
     );
-
-    // Clear vent text, close the modal
+    // Reset vent text and close the modal
     setVentText('');
     setShowModal(false);
     setSelectedMood(null);
@@ -113,7 +107,6 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
             className={`rounded-lg p-6 text-white flex flex-col justify-center items-center cursor-pointer hover:shadow-xl transition-shadow ${mood.color}`}
             onClick={() => handleMoodClick(mood)}
           >
-            {/* If this card is the selected mood, show "Your feeling has been logged". Otherwise show the normal description */}
             <h2 className="text-xl font-semibold mb-2">
               {mood.label}
             </h2>
@@ -132,8 +125,6 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
           className="fixed inset-0 flex items-center justify-center bg-opacity-50 z-50"
           onClick={() => setShowModal(false)}
         >
-          {/* This nested div is the actual modal. We stop propagation here 
-              so clicking inside it doesn't close the modal. */}
           <div
             className="bg-white rounded-lg p-6 w-full max-w-sm shadow-xl relative"
             onClick={(e) => e.stopPropagation()}
@@ -167,7 +158,7 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
               </button>
             </div>
 
-            {/* Optional close (X) button in the top-right corner */}
+            {/* Close button */}
             <button
               onClick={() => setShowModal(false)}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
