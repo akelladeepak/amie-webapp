@@ -10,12 +10,12 @@ function Resources() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full px-4">
         <Link
           to="/coming-soon"
-          className="bg-white shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
+          className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
         >
-          <h2 className="text-xl font-semibold text-gray-700 mb-2">
+          <h2 className="text-xl font-semibold text-white mb-2">
             Meditation
           </h2>
-          <p className="text-gray-500 text-center">
+          <p className="text-white text-center">
             Learn mindfulness techniques for emotional balance
           </p>
           <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
@@ -24,12 +24,12 @@ function Resources() {
         </Link>
         <Link
           to="/coming-soon"
-          className="bg-white shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
+          className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
         >
-          <h2 className="text-xl font-semibold text-gray-700 mb-2">
+          <h2 className="text-xl font-semibold text-white mb-2">
             Breathing Exercises
           </h2>
-          <p className="text-gray-500 text-center">
+          <p className="text-white text-center">
             Simple breathing techniques for stress relief
           </p>
           <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
@@ -38,12 +38,12 @@ function Resources() {
         </Link>
         <Link
           to="/coming-soon"
-          className="bg-white shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
+          className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
         >
-          <h2 className="text-xl font-semibold text-gray-700 mb-2">
+          <h2 className="text-xl font-semibold text-white mb-2">
             Journaling
           </h2>
-          <p className="text-gray-500 text-center">
+          <p className="text-white text-center">
             Express your thoughts and feelings through writing
           </p>
           <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
@@ -52,12 +52,12 @@ function Resources() {
         </Link>
         <Link
           to="/mood-tracker"
-          className="bg-white shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
+          className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
         >
-          <h2 className="text-xl font-semibold text-gray-700 mb-2">
+          <h2 className="text-xl font-semibold text-white mb-2">
             Mood Tracking
           </h2>
-          <p className="text-gray-500 text-center">
+          <p className="text-white text-center">
             Monitor and understand your emotional patterns
           </p>
           <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
