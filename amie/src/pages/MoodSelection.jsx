@@ -61,6 +61,7 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
 
     const newLog = {
       id: Date.now(), // Unique ID
+      fullDate: new Date().toISOString(),
       date: dateStr,
       time: timeStr,
       mood: mood.label,

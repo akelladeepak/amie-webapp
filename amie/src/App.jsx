@@ -1,3 +1,4 @@
+// App.js
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -39,7 +40,8 @@ function App() {
                       }
                     />
                     <Route path="/resources" element={<Resources />} />
-                    <Route path="/mood-tracker" element={<MoodTracker />} />
+                    {/* Pass moodLogs to MoodTracker */}
+                    <Route path="/mood-tracker" element={<MoodTracker moodLogs={moodLogs} />} />
                     <Route
                       path="/record-history"
                       element={<RecordHistory moodLogs={moodLogs} />}
