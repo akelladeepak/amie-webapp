@@ -26,7 +26,7 @@ function MoodTracker() {
       <h1 className="text-3xl font-bold text-gray-700 mb-6">
         One-Week Mood Tracker
       </h1>
-      <div className="bg-white p-8 rounded shadow-md max-w-3xl w-full text-center">
+      <div className="p-8 rounded max-w-3xl w-full text-center">
         <h2 className="text-2xl font-semibold mb-4">Overall Mood for the Week:</h2>
         <div className="flex justify-center mb-8">
           <div className="w-32 h-32 rounded-full flex items-center justify-center bg-orange-400 text-white text-xl font-bold">
