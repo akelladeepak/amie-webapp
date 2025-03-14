@@ -1,55 +1,29 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function RecordHistory() {
-  // Example data for the "Your Moods Overview" section
-  const moodsOverview = [
-    { mood: 'Sad', emoji: '😢', count: 3 },
-    { mood: 'Happy', emoji: '😊', count: 1 },
-    { mood: 'Anxious', emoji: '😰', count: 2 },
-    { mood: 'Angry', emoji: '😡', count: 1 },
-    { mood: 'Fearful', emoji: '😨', count: 1 },
-    { mood: 'Disgust', emoji: '🤢', count: 1 },
-  ];
+function RecordHistory({ moodLogs }) {
+  // Compute counts by mood
+  const moodCounts = moodLogs.reduce((acc, log) => {
+    acc[log.mood] = (acc[log.mood] || 0) + 1;
+    return acc;
+  }, {});
 
-  // Example data for the "Mood Timeline" section
-  const moodTimeline = [
-    {
-      date: '14 MAR',
-      time: '05:06 AM',
-      mood: 'Angry',
-      emoji: '😡',
-      note: 'Dfhggg',
-    },
-    {
-      date: '14 MAR',
-      time: '04:51 AM',
-      mood: 'Sad',
-      emoji: '😢',
-      note: 'T',
-    },
-    {
-      date: '14 MAR',
-      time: '02:01 AM',
-      mood: 'Sad',
-      emoji: '😢',
-      note: 'Not very good',
-    },
-    {
-      date: '14 MAR',
-      time: '01:47 AM',
-      mood: 'Anxious',
-      emoji: '😰',
-      note: '',
-    },
-    {
-      date: '14 MAR',
-      time: '01:47 AM',
-      mood: 'Disgust',
-      emoji: '🤢',
-      note: '',
-    },
-  ];
+  // For emojis, fallback if needed
+  const moodEmojis = {
+    Happy: '😊',
+    Sad: '😢',
+    Angry: '😡',
+    Anxious: '😰',
+    Depressed: '😞',
+    Lonely: '😞',
+  };
+
+  // Sort logs by most recent first (optional)
+  const sortedLogs = [...moodLogs].sort((a, b) => b.id - a.id);
+
+  // Turn our moodCounts into an array so we can map over them
+  // (You can show only moods that have been used, or show all possible moods)
+  const moodsUsed = Object.keys(moodCounts);
 
   return (
     <div className="min-h-screen p-6">
@@ -68,11 +42,15 @@ function RecordHistory() {
         {/* Moods Overview */}
         <h2 className="text-xl font-semibold mb-4">Your Moods Overview</h2>
         <div className="grid grid-cols-3 sm:grid-cols-6 gap-4 mb-8">
-          {moodsOverview.map((item) => (
-            <div key={item.mood} className="flex flex-col items-center">
-              <span className="text-3xl">{item.emoji}</span>
-              <span className="text-xl font-semibold">{item.count}</span>
-              <span className="text-sm text-gray-600">{item.mood}</span>
+          {moodsUsed.map((mood) => (
+            <div key={mood} className="flex flex-col items-center">
+              <span className="text-3xl">
+                {moodEmojis[mood] || '😶'}
+              </span>
+              <span className="text-xl font-semibold">
+                {moodCounts[mood]}
+              </span>
+              <span className="text-sm text-gray-600">{mood}</span>
             </div>
           ))}
         </div>
@@ -80,13 +58,14 @@ function RecordHistory() {
         {/* Mood Timeline */}
         <h2 className="text-xl font-semibold mb-4">Mood Timeline</h2>
         <div className="flex flex-col space-y-4">
-          {moodTimeline.map((entry, index) => (
+          {sortedLogs.map((entry) => (
             <div
-              key={index}
+              key={entry.id}
               className="flex items-center bg-white shadow rounded p-4"
             >
               {/* Date/Time Section */}
               <div className="w-20 flex flex-col items-center justify-center border-r pr-4 mr-4">
+                {/* entry.date is something like "14 MAR". We can split on space if we want */}
                 <span className="text-2xl font-bold">
                   {entry.date.split(' ')[0]}
                 </span>
@@ -102,7 +81,9 @@ function RecordHistory() {
                   <span>{entry.emoji}</span>
                   <span>{entry.mood}</span>
                 </div>
-                {entry.note && <p className="text-gray-600">{entry.note}</p>}
+                {entry.note && (
+                  <p className="text-gray-600">{entry.note}</p>
+                )}
               </div>
             </div>
           ))}

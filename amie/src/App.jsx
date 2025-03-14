@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 // Import pages
 import Login from './pages/Login';
 import MoodSelection from './pages/MoodSelection';
-import Resources from './pages/Resources.jsx';
+import Resources from './pages/Resources';
 import MoodTracker from './pages/MoodTracker';
 import RecordHistory from './pages/RecordHistory';
 import ComingSoon from './pages/ComingSoon';
@@ -13,10 +13,12 @@ import ComingSoon from './pages/ComingSoon';
 import Navbar from './components/Navbar';
 
 function App() {
+  // Keep mood logs in state at the top level so any page can read/write them.
+  const [moodLogs, setMoodLogs] = useState([]);
+
   return (
     <Router>
       <div className="min-h-screen bg-gradient-to-r from-[#cdffd8] to-[#94b9ff]">
-        {/* We only want to show the navbar on pages other than Login */}
         <Routes>
           <Route path="/" element={<Login />} />
           <Route
@@ -26,10 +28,22 @@ function App() {
                 <Navbar />
                 <div className="pt-16">
                   <Routes>
-                    <Route path="/mood-selection" element={<MoodSelection />} />
+                    {/* Pass moodLogs and setMoodLogs to pages that need them */}
+                    <Route
+                      path="/mood-selection"
+                      element={
+                        <MoodSelection
+                          moodLogs={moodLogs}
+                          setMoodLogs={setMoodLogs}
+                        />
+                      }
+                    />
                     <Route path="/resources" element={<Resources />} />
                     <Route path="/mood-tracker" element={<MoodTracker />} />
-                    <Route path="/record-history" element={<RecordHistory />} />
+                    <Route
+                      path="/record-history"
+                      element={<RecordHistory moodLogs={moodLogs} />}
+                    />
                     <Route path="/coming-soon" element={<ComingSoon />} />
                   </Routes>
                 </div>
