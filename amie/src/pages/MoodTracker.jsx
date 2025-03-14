@@ -8,7 +8,7 @@ function MoodTracker() {
     { day: 'Wed', mood: 'Happy', color: 'bg-orange-400' },
     { day: 'Thu', mood: 'Angry', color: 'bg-red-400' },
     { day: 'Fri', mood: 'Happy', color: 'bg-orange-400' },
-    { day: 'Sat', mood: 'Lonely', color: 'bg-gray-400' },
+    { day: 'Sat', mood: 'Lonely', color: 'bg-green-400' },
     { day: 'Sun', mood: 'Depressed', color: 'bg-indigo-400' },
   ];
 

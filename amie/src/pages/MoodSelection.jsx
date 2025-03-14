@@ -29,7 +29,7 @@ const moods = [
   {
     label: 'Lonely',
     description: 'A sense of isolation or solitude',
-    color: 'bg-gray-400',
+    color: 'bg-green-500',
   },
 ];
 
