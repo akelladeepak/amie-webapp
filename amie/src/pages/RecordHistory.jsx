@@ -97,16 +97,15 @@ function RecordHistory({ moodLogs }) {
 
     if (timeFilter === 'custom') {
       // Use user-selected date range
-      // If either startDate or endDate is missing, show no logs (or show all—up to you)
       if (!startDate || !endDate) {
         return [];
       }
       // Convert input strings like "2025-03-10" to real Date objects
       const from = new Date(startDate);
       const to = new Date(endDate);
+      // Adjust the 'to' date to include the entire day (set to 23:59:59.999)
+      to.setHours(23, 59, 59, 999);
 
-      // If you want to include logs from the entire day, 
-      // you might add 23:59:59 to `to`. For simplicity, let's keep it direct:
       return logsWithDates.filter((log) => {
         return log.fullDate >= from && log.fullDate <= to;
       });
