@@ -1,7 +1,9 @@
-// MoodSelection.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast, { Toaster } from 'react-hot-toast';
 import '../assets/styles.css';
+
+const notify = () => toast('Your mood has been logged ❤️');
 
 const moods = [
   {
@@ -45,41 +47,29 @@ const moods = [
 function MoodSelection({ moodLogs, setMoodLogs }) {
   const navigate = useNavigate();
 
-  // Track which mood was clicked (but not logged yet)
   const [selectedMood, setSelectedMood] = useState(null);
-
-  // First modal states
   const [showFirstModal, setShowFirstModal] = useState(false);
   const [ventText, setVentText] = useState('');
-
-  // Second modal state
   const [showSecondModal, setShowSecondModal] = useState(false);
 
-  // Handle user clicking on a mood card
   const handleMoodClick = (mood) => {
     setSelectedMood(mood);
     setVentText('');
     setShowFirstModal(true);
   };
 
-  // Cancel button on first modal => close modal & do NOT log anything
   const handleCancel = () => {
     setShowFirstModal(false);
     setSelectedMood(null);
     setVentText('');
   };
 
-  // Shared helper to create and store a mood log
   const logMood = (moodLabel, moodEmoji, note = '') => {
     const now = new Date();
     const day = now.getDate().toString().padStart(2, '0');
     const month = now.toLocaleString('en-US', { month: 'short' }).toUpperCase();
-    const dateStr = `${day} ${month}`; // e.g. "14 MAR"
-
-    const timeStr = now.toLocaleTimeString('en-US', {
-      hour: '2-digit',
-      minute: '2-digit',
-    });
+    const dateStr = `${day} ${month}`;
+    const timeStr = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
 
     const newLog = {
       id: Date.now(),
@@ -94,23 +84,24 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
     setMoodLogs((prevLogs) => [...prevLogs, newLog]);
   };
 
-  // Save Mood => log with ventText
+  // Save Mood => log with ventText, show toast, and proceed to next modal
   const handleSaveMood = () => {
     if (!selectedMood) return;
     logMood(selectedMood.label, selectedMood.emoji, ventText);
+    notify(); // Show toast here
     setShowFirstModal(false);
     setShowSecondModal(true);
   };
 
-  // Skip Details => log with empty note
+  // Skip Details => log with empty note, show toast, and proceed to next modal
   const handleSkipDetails = () => {
     if (!selectedMood) return;
     logMood(selectedMood.label, selectedMood.emoji, '');
+    notify(); // Show toast here
     setShowFirstModal(false);
     setShowSecondModal(true);
   };
 
-  // Second modal buttons => go to Coming Soon
   const handleVent = () => {
     navigate('/coming-soon');
   };
@@ -119,12 +110,7 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
     navigate('/coming-soon');
   };
 
-  // ------------------------------------------
-  // Sort mood logs descending and take the 5 most recent
-  // ------------------------------------------
-  const sortedLogs = [...moodLogs].sort(
-    (a, b) => new Date(b.fullDate) - new Date(a.fullDate)
-  );
+  const sortedLogs = [...moodLogs].sort((a, b) => new Date(b.fullDate) - new Date(a.fullDate));
   const recentLogs = sortedLogs.slice(0, 5);
 
   return (
@@ -144,7 +130,6 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
             <span className="text-4xl mb-2 group-hover:scale-150 duration-300 ease-in-out">
               {mood.emoji}
             </span>
-            {/* <p className="text-center">{mood.description}</p> */}
           </div>
         ))}
       </div>
@@ -176,7 +161,6 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
 
             {/* Button row */}
             <div className="flex justify-between items-center">
-              {/* Left side: Skip Details */}
               <button
                 onClick={handleSkipDetails}
                 className="text-sm underline text-gray-700 rounded px-2 py-1 cursor-pointer"
@@ -184,7 +168,6 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
                 Skip Details
               </button>
 
-              {/* Right side: Cancel & Save Mood */}
               <div className="flex gap-2">
                 <button
                   onClick={handleCancel}
@@ -246,7 +229,6 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
 
       {/* RECENT MOODS SECTION */}
       <div className="mt-12 w-full max-w-md px-4">
-        {/* Row with heading on the left, button on the right */}
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-bold">Recent Moods</h2>
           <button
@@ -263,10 +245,7 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
         ) : (
           <ul className="space-y-3 text-left">
             {recentLogs.map((log) => (
-              <li
-                key={log.id}
-                className="bg-white p-3 rounded shadow"
-              >
+              <li key={log.id} className="bg-white p-3 rounded shadow">
                 <div className="flex items-center space-x-2">
                   <span className="text-xl">{log.emoji}</span>
                   <span className="font-semibold">{log.mood}</span>
@@ -282,6 +261,9 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
           </ul>
         )}
       </div>
+
+      {/* Include Toaster so that the toast notifications are rendered */}
+      <Toaster />
     </div>
   );
 }
