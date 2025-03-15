@@ -107,11 +107,11 @@ function MoodTracker({ moodLogs }) {
         </h2>
         <div className="flex justify-center mb-10">
           {overallMood ? (
-            <div className={`w-32 md:w-56 h-32 md:h-56 rounded-full flex items-center justify-center ${overallColor} text-white text-base md:text-xl font-bold`}>
+            <div className={`w-32 h-32 lg:w-56 lg:h-56 rounded-full flex items-center justify-center ${overallColor} text-white text-base md:text-xl font-bold`}>
               {overallMood}
             </div>
           ) : (
-            <div className="w-24 md:w-32 h-24 md:h-32 rounded-full flex items-center justify-center border-2 border-gray-400 text-gray-400 text-base md:text-xl font-bold">
+            <div className="w-32 h-32 lg:w-56 lg:h-56 rounded-full flex items-center justify-center border-2 border-gray-400 text-gray-400 text-base md:text-xl font-bold">
               No Entry
             </div>
           )}
