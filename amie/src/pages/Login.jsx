@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import '../assets/styles.css'
 
 function Login() {
   const navigate = useNavigate();
@@ -12,43 +13,48 @@ function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center">
-      <div className="max-w-4xl w-full flex flex-col md:flex-row items-center p-6">
+      <div className="max-w-5xl w-full flex flex-col md:flex-row items-center p-6 space-x-40">
         {/* Left side text */}
-        <div className="md:w-1/2 mb-8 md:mb-0 text-center md:text-left">
-          <h1 className="text-4xl font-bold mb-4 text-gray-700">
+        <div className="md:w-2/3 mb-8 md:mb-0 text-center">
+          <h1 className="text-6xl font-bold mb-4 text-gray-800">
             Welcome Back
           </h1>
-          <p className="text-xl text-gray-600">Your journey to better health.</p>
+          <p className="text-2xl text-gray-600">Your journey to better health.</p>
         </div>
         {/* Right side login form */}
-        <div className="md:w-1/2 bg-white shadow-lg rounded-lg p-8">
-          <h2 className="text-2xl font-semibold mb-6 text-gray-700">Sign In</h2>
+        <div className="md:w-1/2 glassmorphic shadow-lg rounded-lg p-8">
+          <h2 className="text-2xl font-semibold text-gray-700 mb-12">Sign In</h2>
           <form onSubmit={handleSignIn} className="flex flex-col space-y-4">
             <input
               type="email"
               placeholder="Enter your email"
-              className="border border-gray-300 rounded px-4 py-2 focus:outline-none"
+              className=" bg-white rounded-lg px-4 py-3 focus:outline-none mb-8"
               required
             />
             <input
               type="password"
               placeholder="Enter your password"
-              className="border border-gray-300 rounded px-4 py-2 focus:outline-none"
+              className="bg-white rounded-lg px-4 py-3 focus:outline-none"
               required
             />
-            <div className="flex justify-between text-sm text-blue-600">
-              <button type="button" className="hover:underline">
+            <div className="flex justify-between text-sm text-[#3D76D7] mb-18">
+              <button type="button" className="hover:underline cursor-pointer">
                 Forgot Password?
               </button>
-              <Link to="/coming-soon" className="hover:underline">
-                Create Profile
-              </Link>
             </div>
             <button
               type="submit"
-              className="bg-blue-600 text-white py-2 rounded hover:bg-blue-700"
+              className="bg-[#3D76D7] text-white py-2 rounded hover:bg-[#3d66d7] cursor-pointer"
             >
               Sign In
+            </button>
+            <button
+              type="submit"
+              className="bg-white text-[#3D76D7] py-2 rounded hover:bg-gray-100 cursor-pointer"
+            >
+              <Link to="/coming-soon" className="">
+                Create Profile
+              </Link>
             </button>
           </form>
         </div>
