@@ -40,14 +40,6 @@ function Navbar() {
             Mood
           </Link>
           <Link
-            to="/resources"
-            className={`mx-2 my-auto text-gray-700 hover:text-blue-600 ${
-              location.pathname === '/resources' ? 'font-bold' : ''
-            }`}
-          >
-            Resources
-          </Link>
-          <Link
             to="/mood-tracker"
             className={`mx-2 my-auto text-gray-700 hover:text-blue-600 ${
               location.pathname === '/mood-tracker' ? 'font-bold' : ''
@@ -62,6 +54,14 @@ function Navbar() {
             }`}
           >
             History
+          </Link>
+          <Link
+            to="/resources"
+            className={`mx-2 my-auto text-gray-700 hover:text-blue-600 ${
+              location.pathname === '/resources' ? 'font-bold' : ''
+            }`}
+          >
+            Resources
           </Link>
           <Link
             to="/"
@@ -85,15 +85,6 @@ function Navbar() {
               Mood
             </Link>
             <Link
-              to="/resources"
-              className={`block text-gray-700 hover:text-blue-600 ${
-                location.pathname === '/resources' ? 'font-bold' : ''
-              }`}
-              onClick={() => setIsOpen(false)}
-            >
-              Resources
-            </Link>
-            <Link
               to="/mood-tracker"
               className={`block text-gray-700 hover:text-blue-600 ${
                 location.pathname === '/mood-tracker' ? 'font-bold' : ''
@@ -110,6 +101,15 @@ function Navbar() {
               onClick={() => setIsOpen(false)}
             >
               History
+            </Link>
+            <Link
+              to="/resources"
+              className={`block text-gray-700 hover:text-blue-600 ${
+                location.pathname === '/resources' ? 'font-bold' : ''
+              }`}
+              onClick={() => setIsOpen(false)}
+            >
+              Resources
             </Link>
             <Link
               to="/"
