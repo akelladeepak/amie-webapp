@@ -10,25 +10,25 @@ const moods = [
   },
   {
     label: 'Sad',
-    description: 'A feeling of sorrow or unhappiness',
+    description: 'A feeling of unhappiness',
     color: 'bg-blue-400',
     emoji: '😢',
   },
   {
     label: 'Angry',
-    description: 'A strong feeling of displeasure or hostility',
+    description: 'A strong feeling of displeasure',
     color: 'bg-red-400',
     emoji: '😡',
   },
   {
     label: 'Anxious',
-    description: 'A feeling of worry or apprehension',
+    description: 'A sense of worry or unease',
     color: 'bg-purple-400',
     emoji: '😰',
   },
   {
     label: 'Depressed',
-    description: 'A mood matched by deep sadness and low energy',
+    description: 'A feeling of deep sadness',
     color: 'bg-indigo-400',
     emoji: '😞',
   },
@@ -111,6 +111,7 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
             <h2 className="text-xl font-semibold mb-2">
               {mood.label}
             </h2>
+            <span className="text-2xl mb-2">{mood.emoji}</span>
             <p className="text-center">
               {selectedMood === mood.label
                 ? 'Your feeling has been logged'
