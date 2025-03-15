@@ -24,7 +24,7 @@ function MoodTracker({ moodLogs }) {
     });
   }
 
-  // Assign mood logs to their respective day in the week.
+  // Assign mood logs to their respective day in the week
   moodLogs.forEach(log => {
     const logDate = new Date(log.fullDate);
     weekDays.forEach(day => {
@@ -38,7 +38,7 @@ function MoodTracker({ moodLogs }) {
     });
   });
 
-  // A mapping from mood label to its corresponding color.
+  // A mapping from mood label to its corresponding color
   const moodMapping = {
     Happy: 'bg-orange-400',
     Sad: 'bg-blue-400',
@@ -48,23 +48,23 @@ function MoodTracker({ moodLogs }) {
     Lonely: 'bg-green-500'
   };
 
-  // Compute daily mood info.
+  // Compute daily mood info
   const dailyMoodInfo = weekDays.map(day => {
     let mood = null;
     let color = '';
     if (day.logs.length > 0) {
-      // Count frequency of moods for the day.
+      // Count frequency of moods for the day
       const counts = day.logs.reduce((acc, log) => {
         acc[log.mood] = (acc[log.mood] || 0) + 1;
         return acc;
       }, {});
-      // Determine the mood with the highest frequency.
+      // Determine the mood with the highest frequency
       mood = Object.keys(counts).reduce((a, b) =>
         counts[a] > counts[b] ? a : b
       );
       color = moodMapping[mood] || 'bg-gray-400';
     } else {
-      // No logs found for the day.
+      // No logs found for the day
       if (day.date < currentDate) {
         color = 'bg-gray-400';
         mood = 'Missed';
@@ -83,17 +83,18 @@ function MoodTracker({ moodLogs }) {
     return { ...day, mood, color };
   });
 
-  // Compute overall weekly mood from all logs in the current week.
+  // Compute overall weekly mood
   const weeklyCounts = {};
   weekDays.forEach(day => {
     day.logs.forEach(log => {
       weeklyCounts[log.mood] = (weeklyCounts[log.mood] || 0) + 1;
     });
   });
-  const overallMood = Object.keys(weeklyCounts).length > 0 ? 
-    Object.keys(weeklyCounts).reduce((a, b) =>
-      weeklyCounts[a] > weeklyCounts[b] ? a : b
-    ) : null;
+  const overallMood = Object.keys(weeklyCounts).length > 0
+    ? Object.keys(weeklyCounts).reduce((a, b) =>
+        weeklyCounts[a] > weeklyCounts[b] ? a : b
+      )
+    : null;
   const overallColor = overallMood ? moodMapping[overallMood] : '';
 
   return (
@@ -107,7 +108,9 @@ function MoodTracker({ moodLogs }) {
         </h2>
         <div className="flex justify-center mb-10">
           {overallMood ? (
-            <div className={`w-32 h-32 lg:w-56 lg:h-56 rounded-full flex items-center justify-center ${overallColor} text-white text-base md:text-xl font-bold`}>
+            <div
+              className={`w-32 h-32 lg:w-56 lg:h-56 rounded-full flex items-center justify-center ${overallColor} text-white text-base md:text-xl font-bold`}
+            >
               {overallMood}
             </div>
           ) : (
@@ -116,11 +119,15 @@ function MoodTracker({ moodLogs }) {
             </div>
           )}
         </div>
-        <div className="flex flex-wrap justify-around">
+
+        {/* Updated layout: flex-wrap with justify-center and a gap for uniform spacing */}
+        <div className="flex flex-wrap justify-center gap-4">
           {dailyMoodInfo.map((day) => (
-            <div key={day.dayName} className="flex flex-col items-center m-2">
+            <div key={day.dayName} className="flex flex-col items-center">
               {day.color ? (
-                <div className={`w-12 md:w-16 h-12 md:h-16 rounded-full mb-2 flex items-center justify-center text-white ${day.color}`}>
+                <div
+                  className={`w-12 md:w-16 h-12 md:h-16 rounded-full mb-2 flex items-center justify-center text-white ${day.color}`}
+                >
                   {day.dayName}
                 </div>
               ) : (
