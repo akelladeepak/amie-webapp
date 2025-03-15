@@ -144,7 +144,7 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
             <span className="text-4xl mb-2 group-hover:scale-150 duration-300 ease-in-out">
               {mood.emoji}
             </span>
-            <p className="text-center">{mood.description}</p>
+            {/* <p className="text-center">{mood.description}</p> */}
           </div>
         ))}
       </div>
@@ -251,9 +251,9 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
           <h2 className="text-2xl font-bold">Recent Moods</h2>
           <button
             onClick={() => navigate('/record-history')}
-            className="text-blue-600 underline cursor-pointer"
+            className="text-blue-600 cursor-pointer"
           >
-            View Full History
+            View Full History →
           </button>
         </div>
 
