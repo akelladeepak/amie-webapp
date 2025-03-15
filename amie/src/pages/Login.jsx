@@ -13,8 +13,8 @@ function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center p-6 md:space-x-6 md:space-y-0">
+    <div className="max-h-screen flex items-center justify-center px-4">
+      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center p-6 md:space-x-6 md:space-y-0 mt-16 lg:mt-32">
         {/* Left side text */}
         <div className="w-full md:w-2/3">
           <h1 className="lg:text-6xl text-4xl font-bold lg:mb-4 text-gray-800 lg:text-left text-center">
