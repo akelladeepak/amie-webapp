@@ -140,7 +140,7 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
           onClick={handleCancel}
         >
           <div
-            className="bg-white rounded-lg p-6 w-full max-w-sm shadow-xl relative"
+            className="bg-white rounded-lg p-6 lg:w-full w-[90%] max-w-sm shadow-xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Center the heading */}
@@ -199,7 +199,7 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
           onClick={() => setShowSecondModal(false)}
         >
           <div
-            className="bg-white rounded-lg p-6 w-full max-w-sm shadow-xl relative"
+            className="bg-white rounded-lg p-6 lg:w-full w-[90%] max-w-sm shadow-xl relative"
             onClick={(e) => e.stopPropagation()}
           >
             <h2 className="text-xl font-bold mb-4 select-none">
@@ -235,7 +235,7 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
       {/* RECENT MOODS SECTION */}
       <div className="mt-12 w-full max-w-md px-4">
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold">Recent Moods</h2>
+          <h2 className="text-2xl font-bold text-gray-700">Recent Moods</h2>
           <button
             onClick={() => navigate('/record-history')}
             className="text-blue-600 cursor-pointer relative group"
