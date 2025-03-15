@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import '../assets/styles.css'
+import '../assets/styles.css';
 
 const moods = [
   {
@@ -43,13 +43,33 @@ const moods = [
 
 function MoodSelection({ moodLogs, setMoodLogs }) {
   const navigate = useNavigate();
-  const [selectedMood, setSelectedMood] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-  const [ventText, setVentText] = useState('');
-  const [lastLogId, setLastLogId] = useState(null);
 
+  // Track which mood was clicked (but not logged yet)
+  const [selectedMood, setSelectedMood] = useState(null);
+
+  // First modal states
+  const [showFirstModal, setShowFirstModal] = useState(false);
+  const [ventText, setVentText] = useState('');
+
+  // Second modal state
+  const [showSecondModal, setShowSecondModal] = useState(false);
+
+  // Handle user clicking on a mood card
   const handleMoodClick = (mood) => {
-    // Log the mood immediately with the corrected date format (DD MMM)
+    setSelectedMood(mood);
+    setVentText('');
+    setShowFirstModal(true);
+  };
+
+  // Cancel button on first modal => close modal & do NOT log anything
+  const handleCancel = () => {
+    setShowFirstModal(false);
+    setSelectedMood(null);
+    setVentText('');
+  };
+
+  // Shared helper to create and store a mood log
+  const logMood = (moodLabel, moodEmoji, note = '') => {
     const now = new Date();
     const day = now.getDate().toString().padStart(2, '0');
     const month = now.toLocaleString('en-US', { month: 'short' }).toUpperCase();
@@ -61,39 +81,41 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
     });
 
     const newLog = {
-      id: Date.now(), // Unique ID
+      id: Date.now(),
       fullDate: new Date().toISOString(),
       date: dateStr,
       time: timeStr,
-      mood: mood.label,
-      emoji: mood.emoji,
-      note: '',
+      mood: moodLabel,
+      emoji: moodEmoji,
+      note: note,
     };
 
     setMoodLogs((prevLogs) => [...prevLogs, newLog]);
-    setLastLogId(newLog.id);
-
-    // Indicate that this mood has been logged
-    setSelectedMood(mood.label);
-    setShowModal(true);
   };
 
-  const handleExercise = () => {
-    // Navigate to the ComingSoon page for the exercise feature
+  // Save Mood => log with ventText
+  const handleSaveMood = () => {
+    if (!selectedMood) return;
+    logMood(selectedMood.label, selectedMood.emoji, ventText);
+    setShowFirstModal(false);
+    setShowSecondModal(true);
+  };
+
+  // Skip Details => log with empty note
+  const handleSkipDetails = () => {
+    if (!selectedMood) return;
+    logMood(selectedMood.label, selectedMood.emoji, '');
+    setShowFirstModal(false);
+    setShowSecondModal(true);
+  };
+
+  // Second modal buttons => go to Coming Soon
+  const handleVent = () => {
     navigate('/coming-soon');
   };
 
-  const handleVentSubmit = () => {
-    // Update the note for the most recent mood log
-    setMoodLogs((prevLogs) =>
-      prevLogs.map((log) =>
-        log.id === lastLogId ? { ...log, note: ventText } : log
-      )
-    );
-    // Reset vent text and close the modal
-    setVentText('');
-    setShowModal(false);
-    setSelectedMood(null);
+  const handleExercise = () => {
+    navigate('/coming-soon');
   };
 
   return (
@@ -112,43 +134,90 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
             <h2 className="text-xl font-semibold mb-4">
               {mood.label}
             </h2>
-            <span className="text-4xl mb-2 group-hover:scale-150 duration-300 ease-in-out">{mood.emoji}</span>
+            <span className="text-4xl mb-2 group-hover:scale-150 duration-300 ease-in-out">
+              {mood.emoji}
+            </span>
             <p className="text-center">
-              {selectedMood === mood.label
-                ? 'Your feeling has been logged'
-                : mood.description}
+              {mood.description}
             </p>
           </div>
         ))}
       </div>
 
-      {/* Modal */}
-      {showModal && (
+      {/* FIRST MODAL */}
+      {showFirstModal && selectedMood && (
         <div
-          className="fixed inset-0 flex items-center justify-center bg-opacity-10 z-50 bg-black/50"
-          onClick={() => setShowModal(false)}
+          className="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
+          onClick={handleCancel}
         >
           <div
             className="bg-white rounded-lg p-6 w-full max-w-sm shadow-xl relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-xl font-bold mb-4 select-none">Please choose below</h2>
-            <p className="mb-4">
-              Vent about your mood or proceed to a healthy exercise tailored to your feeling.
-            </p>
-
-            {/* Vent textarea */}
+            <h2 className="text-xl font-bold mb-4 select-none">
+              Share More About Your Mood
+            </h2>
+            <div className="flex items-center text-2xl mb-4">
+              <span className="mr-2">{selectedMood.emoji}</span>
+              <span>{selectedMood.label}</span>
+            </div>
+            <p className="mb-4">Would you like to share any details?</p>
             <textarea
               value={ventText}
               onChange={(e) => setVentText(e.target.value)}
-              placeholder="Type here if you want to vent..."
+              placeholder="Tell us more about how you're feeling..."
               className="w-full p-2 border border-gray-300 rounded mb-4"
             />
 
-            {/* Buttons */}
+            {/* Updated button row */}
+            <div className="flex justify-between items-center">
+              {/* Left side: Skip Details */}
+              <button
+                onClick={handleSkipDetails}
+                className="text-sm underline text-gray-700 rounded px-2 py-1"
+              >
+                Skip Details
+              </button>
+
+              {/* Right side: Cancel & Save Mood */}
+              <div className="flex gap-2">
+                <button
+                  onClick={handleCancel}
+                  className="px-4 py-2 bg-gray-300 text-gray-700 rounded"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleSaveMood}
+                  className="px-4 py-2 bg-blue-500 text-white rounded"
+                >
+                  Save Mood
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* SECOND MODAL */}
+      {showSecondModal && (
+        <div
+          className="fixed inset-0 flex items-center justify-center bg-black/50 z-50"
+          onClick={() => setShowSecondModal(false)}
+        >
+          <div
+            className="bg-white rounded-lg p-6 w-full max-w-sm shadow-xl relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h2 className="text-xl font-bold mb-4 select-none">
+              Please choose below
+            </h2>
+            <p className="mb-6">
+              Vent about your mood or proceed to a healthy exercise tailored to your feeling.
+            </p>
             <div className="flex justify-end gap-4">
               <button
-                onClick={handleVentSubmit}
+                onClick={handleVent}
                 className="px-4 py-2 bg-blue-500 text-white rounded"
               >
                 Vent
@@ -160,10 +229,8 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
                 Exercise
               </button>
             </div>
-
-            {/* Close button */}
             <button
-              onClick={() => setShowModal(false)}
+              onClick={() => setShowSecondModal(false)}
               className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
             >
               ✕
