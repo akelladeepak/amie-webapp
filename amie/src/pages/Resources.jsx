@@ -8,62 +8,58 @@ function Resources() {
         Emotional Skills & Resources
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl w-full px-4">
-        <Link
-          to="/coming-soon"
-          className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
-        >
+        <div className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow">
           <h2 className="text-xl font-semibold text-white mb-2">
             Meditation
           </h2>
           <p className="text-white text-center">
             Learn mindfulness techniques for emotional balance
           </p>
-          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">
-            Start Practice
-          </button>
-        </Link>
-        <Link
-          to="/coming-soon"
-          className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
-        >
+          <Link to="/coming-soon">
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">
+              Start Practice
+            </button>
+          </Link>
+        </div>
+        <div className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow">
           <h2 className="text-xl font-semibold text-white mb-2">
             Breathing Exercises
           </h2>
           <p className="text-white text-center">
             Simple breathing techniques for stress relief
           </p>
-          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">
-            Begin Exercise
-          </button>
-        </Link>
-        <Link
-          to="/coming-soon"
-          className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
-        >
+          <Link to="/coming-soon">
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">
+              Begin Exercise
+            </button>
+          </Link>
+        </div>
+        <div className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow">
           <h2 className="text-xl font-semibold text-white mb-2">
             Journaling
           </h2>
           <p className="text-white text-center">
             Express your thoughts and feelings through writing
           </p>
-          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">
-            Open Journal
-          </button>
-        </Link>
-        <Link
-          to="/mood-tracker"
-          className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
-        >
+          <Link to="/coming-soon">
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">
+              Open Journal
+            </button>
+          </Link>
+        </div>
+        <div className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow">
           <h2 className="text-xl font-semibold text-white mb-2">
             Mood Tracking
           </h2>
           <p className="text-white text-center">
             Monitor and understand your emotional patterns
           </p>
-          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">
-            Track Mood
-          </button>
-        </Link>
+          <Link to="/mood-tracker">
+            <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">
+              Track Mood
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );
