@@ -250,12 +250,12 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-2xl font-bold">Recent Moods</h2>
           <button
-  onClick={() => navigate('/record-history')}
-  className="text-blue-600 cursor-pointer relative group"
->
-  View Full History →
-  <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-</button>
+            onClick={() => navigate('/record-history')}
+            className="text-blue-600 cursor-pointer relative group"
+          >
+            View Full History →
+            <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+          </button>
         </div>
 
         {recentLogs.length === 0 ? (
