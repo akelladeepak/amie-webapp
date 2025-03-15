@@ -79,7 +79,7 @@ function Login() {
         </div>
       </div>
       {/* Cloud */}
-      <div className='absolute bottom-0 w-dvw'>
+      <div className='absolute bottom-0 w-dvw pointer-events-none'>
         <img src={cloud} className='object-cover w-full'></img>
       </div>
     </div>
