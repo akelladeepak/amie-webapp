@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom';
 function Resources() {
   return (
     <div className="min-h-screen flex flex-col items-center py-10">
-      <h1 className="text-3xl font-bold text-gray-700 mb-6">
+      <h1 className="text-5xl font-bold text-gray-700 mb-16">
         Emotional Skills & Resources
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl w-full px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl w-full px-4">
         <Link
           to="/coming-soon"
           className="bg-[#72a7dd] shadow-md rounded-lg p-6 flex flex-col justify-center items-center hover:shadow-xl transition-shadow"
