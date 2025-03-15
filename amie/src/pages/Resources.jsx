@@ -18,7 +18,7 @@ function Resources() {
           <p className="text-white text-center">
             Learn mindfulness techniques for emotional balance
           </p>
-          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">
             Start Practice
           </button>
         </Link>
@@ -32,7 +32,7 @@ function Resources() {
           <p className="text-white text-center">
             Simple breathing techniques for stress relief
           </p>
-          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">
             Begin Exercise
           </button>
         </Link>
@@ -46,7 +46,7 @@ function Resources() {
           <p className="text-white text-center">
             Express your thoughts and feelings through writing
           </p>
-          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">
             Open Journal
           </button>
         </Link>
@@ -60,7 +60,7 @@ function Resources() {
           <p className="text-white text-center">
             Monitor and understand your emotional patterns
           </p>
-          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+          <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 cursor-pointer">
             Track Mood
           </button>
         </Link>

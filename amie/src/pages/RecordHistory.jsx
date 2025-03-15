@@ -184,7 +184,7 @@ function RecordHistory({ moodLogs }) {
           <select
             value={timeFilter}
             onChange={(e) => setTimeFilter(e.target.value)}
-            className="border rounded p-1"
+            className="border rounded p-1 cursor-pointer"
           >
             <option value="all">All Time</option>
             <option value="7">Last 7 Days</option>
