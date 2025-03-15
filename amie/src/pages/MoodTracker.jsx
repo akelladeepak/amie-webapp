@@ -25,7 +25,6 @@ function MoodTracker({ moodLogs }) {
   }
 
   // Assign mood logs to their respective day in the week.
-  // (Assumes each log's fullDate can be parsed into a Date object.)
   moodLogs.forEach(log => {
     const logDate = new Date(log.fullDate);
     weekDays.forEach(day => {
@@ -67,7 +66,6 @@ function MoodTracker({ moodLogs }) {
     } else {
       // No logs found for the day.
       if (day.date < currentDate) {
-        // Past day with no log: mark as missed.
         color = 'bg-gray-400';
         mood = 'Missed';
       } else if (
@@ -75,11 +73,9 @@ function MoodTracker({ moodLogs }) {
         day.date.getMonth() === currentDate.getMonth() &&
         day.date.getDate() === currentDate.getDate()
       ) {
-        // Today with no entry can also be considered missed.
         color = 'bg-gray-400';
         mood = 'Missed';
       } else {
-        // Future day: show an outlined circle (no fill color).
         color = '';
         mood = '';
       }
@@ -101,36 +97,38 @@ function MoodTracker({ moodLogs }) {
   const overallColor = overallMood ? moodMapping[overallMood] : '';
 
   return (
-    <div className="min-h-screen flex flex-col items-center py-10">
-      <h1 className="text-5xl font-bold text-gray-700 mb-6">
+    <div className="min-h-screen flex flex-col items-center py-10 px-4">
+      <h1 className="text-3xl md:text-5xl font-bold text-gray-700 mb-6">
         Mood Tracker
       </h1>
-      <div className="p-8 rounded max-w-3xl w-full text-center">
-        <h2 className="text-2xl font-semibold mb-6 text-gray-600">Overall Mood for the Week:</h2>
+      <div className="p-4 md:p-8 rounded max-w-3xl w-full text-center">
+        <h2 className="text-xl md:text-2xl font-semibold mb-6 text-gray-600">
+          Overall Mood for the Week:
+        </h2>
         <div className="flex justify-center mb-10">
           {overallMood ? (
-            <div className={`w-56 h-56 rounded-full flex items-center justify-center ${overallColor} text-white text-xl font-bold`}>
+            <div className={`w-32 md:w-56 h-32 md:h-56 rounded-full flex items-center justify-center ${overallColor} text-white text-base md:text-xl font-bold`}>
               {overallMood}
             </div>
           ) : (
-            <div className="w-32 h-32 rounded-full flex items-center justify-center border-2 border-gray-400 text-gray-400 text-xl font-bold">
+            <div className="w-24 md:w-32 h-24 md:h-32 rounded-full flex items-center justify-center border-2 border-gray-400 text-gray-400 text-base md:text-xl font-bold">
               No Entry
             </div>
           )}
         </div>
-        <div className="flex justify-around">
+        <div className="flex flex-wrap justify-around">
           {dailyMoodInfo.map((day) => (
-            <div key={day.dayName} className="flex flex-col items-center">
+            <div key={day.dayName} className="flex flex-col items-center m-2">
               {day.color ? (
-                <div className={`w-16 h-16 rounded-full mb-2 flex items-center justify-center text-white ${day.color}`}>
+                <div className={`w-12 md:w-16 h-12 md:h-16 rounded-full mb-2 flex items-center justify-center text-white ${day.color}`}>
                   {day.dayName}
                 </div>
               ) : (
-                <div className="w-16 h-16 rounded-full mb-2 flex items-center justify-center border-2 border-gray-400 text-gray-400">
+                <div className="w-12 md:w-16 h-12 md:h-16 rounded-full mb-2 flex items-center justify-center border-2 border-gray-400 text-gray-400">
                   {day.dayName}
                 </div>
               )}
-              <p className="text-sm text-gray-600">{day.mood}</p>
+              <p className="text-xs md:text-sm text-gray-600">{day.mood}</p>
             </div>
           ))}
         </div>
