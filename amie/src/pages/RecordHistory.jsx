@@ -171,9 +171,10 @@ function RecordHistory({ moodLogs }) {
           <h1 className="text-3xl font-bold">Your Mood History</h1>
           <Link
             to="/mood-tracker"
-            className="bg-[#72a7dd] border rounded px-4 py-2 shadow-sm hover:shadow-md"
+            className="text-blue-600 cursor-pointer relative group inline-block"
           >
-            Back to Mood Tracker
+            Back to Mood Tracker →
+            <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-blue-600"></span>
           </Link>
         </div>
 
