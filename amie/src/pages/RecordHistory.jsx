@@ -164,7 +164,7 @@ function RecordHistory({ moodLogs }) {
   const moodsUsed = Object.keys(moodCounts);
 
   return (
-    <div className="min-h-screen p-6 text-gray-700">
+    <div className="min-h-screen p-6 text-gray-700 py-10">
       <div className="max-w-3xl mx-auto">
         {/* Header: Title + Back Button */}
         <div className="flex items-center justify-between mb-8">
