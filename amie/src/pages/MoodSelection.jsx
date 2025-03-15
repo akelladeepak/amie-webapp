@@ -98,7 +98,7 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
   return (
     <div className="min-h-screen flex flex-col items-center py-10 relative">
       <h1 className="text-3xl font-bold text-gray-700 mb-6">
-        Please select your current mood.
+        How are you feeling today?
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full px-4">
