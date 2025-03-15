@@ -14,13 +14,13 @@ function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4">
-      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center p-6 md:space-x-6 space-y-8 md:space-y-0">
+      <div className="max-w-6xl w-full flex flex-col md:flex-row items-center p-6 md:space-x-6 md:space-y-0">
         {/* Left side text */}
         <div className="w-full md:w-2/3">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-gray-800">
+          <h1 className="lg:text-6xl text-4xl font-bold lg:mb-4 text-gray-800 lg:text-left text-center">
             Welcome Back
           </h1>
-          <p className="text-lg md:text-2xl text-gray-600">
+          <p className="text-lg md:text-2xl text-gray-600 lg:text-left text-center mb-6">
             Your journey to better health.
           </p>
         </div>
