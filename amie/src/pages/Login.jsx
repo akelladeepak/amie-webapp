@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../assets/styles.css';
+import cloud from '../assets/cloud.svg';
 
 function Login() {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ function Login() {
         {/* Right side login form */}
         <div className="w-full md:w-1/2 bg-white shadow-lg rounded-2xl px-8 pb-8 pt-4">
           <div className='mb-6 md:mb-12'>
-          <h1 className='logo text-center'>
+          <h1 className='logo text-center select-none'>
             Amie
           </h1>
           {/* <h2 className="text-xl md:text-xl font-semibold text-gray-500 text-center">
@@ -76,6 +77,10 @@ function Login() {
             </p>
           </div>
         </div>
+      </div>
+      {/* Cloud */}
+      <div className='absolute bottom-0 w-dvw'>
+        <img src={cloud} className='object-cover w-full'></img>
       </div>
     </div>
   );
