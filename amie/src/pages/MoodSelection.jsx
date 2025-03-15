@@ -143,14 +143,20 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
             className="bg-white rounded-lg p-6 w-full max-w-sm shadow-xl relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-xl font-bold mb-4 select-none">
+            {/* Center the heading */}
+            <h2 className="text-center text-xl font-bold mb-4 select-none">
               Share More About Your Mood
             </h2>
-            <div className="flex items-center text-2xl mb-4">
-              <span className="mr-2">{selectedMood.emoji}</span>
-              <span>{selectedMood.label}</span>
+            
+            {/* Flex column to stack emoji on top of label */}
+            <div className="flex flex-col items-center text-2xl mb-4">
+              <span className="text-6xl mb-2">{selectedMood.emoji}</span>
+              <span className="text-xl font-bold">{selectedMood.label}</span>
             </div>
+
+            {/* Center this question text as well */}
             <p className="mb-4">Would you like to share any details?</p>
+
             <textarea
               value={ventText}
               onChange={(e) => setVentText(e.target.value)}
