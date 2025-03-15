@@ -102,14 +102,14 @@ function MoodTracker({ moodLogs }) {
 
   return (
     <div className="min-h-screen flex flex-col items-center py-10">
-      <h1 className="text-3xl font-bold text-gray-700 mb-6">
-        One-Week Mood Tracker
+      <h1 className="text-5xl font-bold text-gray-700 mb-6">
+        Mood Tracker
       </h1>
       <div className="p-8 rounded max-w-3xl w-full text-center">
-        <h2 className="text-2xl font-semibold mb-4">Overall Mood for the Week:</h2>
-        <div className="flex justify-center mb-8">
+        <h2 className="text-2xl font-semibold mb-6 text-gray-600">Overall Mood for the Week:</h2>
+        <div className="flex justify-center mb-10">
           {overallMood ? (
-            <div className={`w-32 h-32 rounded-full flex items-center justify-center ${overallColor} text-white text-xl font-bold`}>
+            <div className={`w-56 h-56 rounded-full flex items-center justify-center ${overallColor} text-white text-xl font-bold`}>
               {overallMood}
             </div>
           ) : (
@@ -122,11 +122,11 @@ function MoodTracker({ moodLogs }) {
           {dailyMoodInfo.map((day) => (
             <div key={day.dayName} className="flex flex-col items-center">
               {day.color ? (
-                <div className={`w-10 h-10 rounded-full mb-2 flex items-center justify-center text-white ${day.color}`}>
+                <div className={`w-16 h-16 rounded-full mb-2 flex items-center justify-center text-white ${day.color}`}>
                   {day.dayName}
                 </div>
               ) : (
-                <div className="w-10 h-10 rounded-full mb-2 flex items-center justify-center border-2 border-gray-400 text-gray-400">
+                <div className="w-16 h-16 rounded-full mb-2 flex items-center justify-center border-2 border-gray-400 text-gray-400">
                   {day.dayName}
                 </div>
               )}
