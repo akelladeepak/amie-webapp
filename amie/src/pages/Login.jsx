@@ -25,7 +25,7 @@ function Login() {
           </p>
         </div>
         {/* Right side login form */}
-        <div className="w-full md:w-1/2 bg-white shadow-lg rounded-2xl px-8 pb-8 pt-4">
+        <div className="w-full md:w-1/2 bg-white shadow-lg rounded-2xl px-8 pb-8 pt-4 z-50">
           <div className='mb-6 md:mb-12'>
           <h1 className='logo text-center select-none'>
             Amie
@@ -79,7 +79,7 @@ function Login() {
         </div>
       </div>
       {/* Cloud */}
-      <div className='absolute bottom-0 w-dvw pointer-events-none'>
+      <div className='absolute bottom-0 w-dvw pointer-events-none z-0'>
         <img src={cloud} className='object-cover w-full'></img>
       </div>
     </div>
