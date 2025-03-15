@@ -218,13 +218,13 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
             <div className="flex justify-end gap-4">
               <button
                 onClick={handleVent}
-                className="px-4 py-2 bg-blue-500 text-white rounded"
+                className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer"
               >
                 Vent
               </button>
               <button
                 onClick={handleExercise}
-                className="px-4 py-2 bg-green-500 text-white rounded"
+                className="px-4 py-2 bg-green-500 text-white rounded cursor-pointer"
               >
                 Exercise
               </button>
