@@ -174,7 +174,7 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
               {/* Left side: Skip Details */}
               <button
                 onClick={handleSkipDetails}
-                className="text-sm underline text-gray-700 rounded px-2 py-1"
+                className="text-sm underline text-gray-700 rounded px-2 py-1 cursor-pointer"
               >
                 Skip Details
               </button>
@@ -183,13 +183,13 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
               <div className="flex gap-2">
                 <button
                   onClick={handleCancel}
-                  className="px-4 py-2 bg-gray-300 text-gray-700 rounded"
+                  className="px-4 py-2 bg-gray-300 text-gray-700 rounded cursor-pointer"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={handleSaveMood}
-                  className="px-4 py-2 bg-blue-500 text-white rounded"
+                  className="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer"
                 >
                   Save Mood
                 </button>
