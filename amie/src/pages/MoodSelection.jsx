@@ -1,3 +1,4 @@
+// MoodSelection.js
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../assets/styles.css';
@@ -118,6 +119,14 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
     navigate('/coming-soon');
   };
 
+  // ------------------------------------------
+  // Sort mood logs descending and take the 5 most recent
+  // ------------------------------------------
+  const sortedLogs = [...moodLogs].sort(
+    (a, b) => new Date(b.fullDate) - new Date(a.fullDate)
+  );
+  const recentLogs = sortedLogs.slice(0, 5);
+
   return (
     <div className="min-h-screen flex flex-col items-center py-10 relative">
       <h1 className="text-5xl font-bold text-gray-700 mb-24">
@@ -131,15 +140,11 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
             className={`rounded-lg px-12 pb-10 pt-6 text-white flex flex-col justify-center items-center cursor-pointer hover:shadow-xl transition-shadow ${mood.color} border border-black group`}
             onClick={() => handleMoodClick(mood)}
           >
-            <h2 className="text-xl font-semibold mb-4">
-              {mood.label}
-            </h2>
+            <h2 className="text-xl font-semibold mb-4">{mood.label}</h2>
             <span className="text-4xl mb-2 group-hover:scale-150 duration-300 ease-in-out">
               {mood.emoji}
             </span>
-            <p className="text-center">
-              {mood.description}
-            </p>
+            <p className="text-center">{mood.description}</p>
           </div>
         ))}
       </div>
@@ -169,7 +174,7 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
               className="w-full p-2 border border-gray-300 rounded mb-4"
             />
 
-            {/* Updated button row */}
+            {/* Button row */}
             <div className="flex justify-between items-center">
               {/* Left side: Skip Details */}
               <button
@@ -238,6 +243,44 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
           </div>
         </div>
       )}
+
+      {/* RECENT MOODS SECTION */}
+      <div className="mt-12 w-full max-w-md px-4">
+        {/* Row with heading on the left, button on the right */}
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-2xl font-bold">Recent Moods</h2>
+          <button
+            onClick={() => navigate('/record-history')}
+            className="text-blue-600 underline cursor-pointer"
+          >
+            View Full History
+          </button>
+        </div>
+
+        {recentLogs.length === 0 ? (
+          <p className="text-gray-600">No moods logged yet.</p>
+        ) : (
+          <ul className="space-y-3 text-left">
+            {recentLogs.map((log) => (
+              <li
+                key={log.id}
+                className="bg-white p-3 rounded shadow"
+              >
+                <div className="flex items-center space-x-2">
+                  <span className="text-xl">{log.emoji}</span>
+                  <span className="font-semibold">{log.mood}</span>
+                </div>
+                <div className="text-gray-600 text-sm">
+                  {log.date} {log.time}
+                </div>
+                {log.note && (
+                  <div className="mt-1 text-gray-800">{log.note}</div>
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }
