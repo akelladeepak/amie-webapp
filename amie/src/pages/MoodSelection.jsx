@@ -233,38 +233,39 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
       )}
 
       {/* RECENT MOODS SECTION */}
-      <div className="mt-12 w-full max-w-md px-4">
-        <div className="flex items-center justify-between mb-4">
-          <h2 className="text-2xl font-bold text-gray-700">Recent Moods</h2>
-          <button
-            onClick={() => navigate('/record-history')}
-            className="text-blue-600 cursor-pointer relative group"
-          >
-            View Full History →
-            <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-          </button>
+      <div className="mt-12 w-full px-4 max-w-6xl">
+        <div className="max-w-md">
+          <div className="flex items-center justify-between mb-4">
+            <h2 className="text-2xl font-bold text-gray-700">Recent Moods</h2>
+            <button
+              onClick={() => navigate('/record-history')}
+              className="text-blue-600 cursor-pointer relative group"
+            >
+              View Full History →
+              <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+            </button>
+          </div>
+          {recentLogs.length === 0 ? (
+            <p className="text-gray-600">No moods logged yet.</p>
+          ) : (
+            <ul className="space-y-3 text-left">
+              {recentLogs.map((log) => (
+                <li key={log.id} className="bg-white p-3 rounded shadow">
+                  <div className="flex items-center space-x-2">
+                    <span className="text-xl">{log.emoji}</span>
+                    <span className="font-semibold">{log.mood}</span>
+                  </div>
+                  <div className="text-gray-600 text-sm">
+                    {log.date} {log.time}
+                  </div>
+                  {log.note && (
+                    <div className="mt-1 text-gray-800">{log.note}</div>
+                  )}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-
-        {recentLogs.length === 0 ? (
-          <p className="text-gray-600">No moods logged yet.</p>
-        ) : (
-          <ul className="space-y-3 text-left">
-            {recentLogs.map((log) => (
-              <li key={log.id} className="bg-white p-3 rounded shadow">
-                <div className="flex items-center space-x-2">
-                  <span className="text-xl">{log.emoji}</span>
-                  <span className="font-semibold">{log.mood}</span>
-                </div>
-                <div className="text-gray-600 text-sm">
-                  {log.date} {log.time}
-                </div>
-                {log.note && (
-                  <div className="mt-1 text-gray-800">{log.note}</div>
-                )}
-              </li>
-            ))}
-          </ul>
-        )}
       </div>
 
       {/* Include Toaster so that the toast notifications are rendered */}
