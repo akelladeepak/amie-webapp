@@ -115,21 +115,20 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
 
   return (
     <div className="min-h-screen flex flex-col items-center py-10 relative">
-      <h1 className="text-5xl font-bold text-gray-700 mb-24">
+      <h1 className="text-2xl lg:text-5xl font-bold text-gray-700 lg:mb-24 mb-8 text-center">
         How are you feeling right now?
       </h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full px-4 select-none">
+      <div className="grid grid-cols-3 md:grid-cols-3 lg:gap-6 gap-3 max-w-6xl w-full px-4 select-none">
         {moods.map((mood) => (
           <div
             key={mood.label}
-            className={`rounded-lg px-12 pb-10 pt-6 text-white flex flex-col justify-center items-center cursor-pointer hover:shadow-xl transition-shadow ${mood.color} border border-black group`}
+            className={`rounded-lg sm:px-6 sm:pb-0 md:px-12 text-white flex flex-col justify-center items-center cursor-pointer hover:shadow-xl transition-shadow ${mood.color} group`}
             onClick={() => handleMoodClick(mood)}
           >
-            <h2 className="text-xl font-semibold mb-4">{mood.label}</h2>
-            <span className="text-4xl mb-2 group-hover:scale-150 duration-300 ease-in-out">
+            <span className="text-4xl lg:text-5xl group-hover:scale-150 duration-300 ease-in-ou mt-4 mb-2 lg:mb-6 lg:mt-12">
               {mood.emoji}
             </span>
+            <h2 className="md:text-sm lg:text-xl font-semibold mb-4">{mood.label}</h2>
           </div>
         ))}
       </div>
