@@ -157,7 +157,7 @@ function RecordHistory({ moodLogs }) {
     Angry: '😡',
     Anxious: '😰',
     Depressed: '😞',
-    Lonely: '😞',
+    Lonely: '🫥',
   };
 
   // Turn moodCounts into an array for display

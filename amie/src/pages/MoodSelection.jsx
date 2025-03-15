@@ -37,7 +37,7 @@ const moods = [
     label: 'Lonely',
     description: 'A sense of isolation or solitude',
     color: 'bg-green-500',
-    emoji: '😞',
+    emoji: '🫥',
   },
 ];
 
