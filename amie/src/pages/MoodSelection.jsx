@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../assets/styles.css'
 
 const moods = [
   {
@@ -97,21 +98,21 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
 
   return (
     <div className="min-h-screen flex flex-col items-center py-10 relative">
-      <h1 className="text-3xl font-bold text-gray-700 mb-6">
+      <h1 className="text-5xl font-bold text-gray-700 mb-24">
         How are you feeling today?
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full px-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full px-4 select-none">
         {moods.map((mood) => (
           <div
             key={mood.label}
-            className={`rounded-lg p-6 text-white flex flex-col justify-center items-center cursor-pointer hover:shadow-xl transition-shadow ${mood.color}`}
+            className={`rounded-lg px-12 pb-10 pt-6 text-white flex flex-col justify-center items-center cursor-pointer hover:shadow-xl transition-shadow ${mood.color} border border-black group`}
             onClick={() => handleMoodClick(mood)}
           >
-            <h2 className="text-xl font-semibold mb-2">
+            <h2 className="text-xl font-semibold mb-4">
               {mood.label}
             </h2>
-            <span className="text-2xl mb-2">{mood.emoji}</span>
+            <span className="text-4xl mb-2 group-hover:scale-150 duration-300 ease-in-out">{mood.emoji}</span>
             <p className="text-center">
               {selectedMood === mood.label
                 ? 'Your feeling has been logged'
@@ -124,14 +125,14 @@ function MoodSelection({ moodLogs, setMoodLogs }) {
       {/* Modal */}
       {showModal && (
         <div
-          className="fixed inset-0 flex items-center justify-center bg-opacity-50 z-50"
+          className="fixed inset-0 flex items-center justify-center bg-opacity-10 z-50 bg-black/50"
           onClick={() => setShowModal(false)}
         >
           <div
             className="bg-white rounded-lg p-6 w-full max-w-sm shadow-xl relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <h2 className="text-xl font-bold mb-4">Please choose below</h2>
+            <h2 className="text-xl font-bold mb-4 select-none">Please choose below</h2>
             <p className="mb-4">
               Vent about your mood or proceed to a healthy exercise tailored to your feeling.
             </p>

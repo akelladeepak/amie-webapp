@@ -33,7 +33,7 @@ function Navbar() {
         <div className="hidden md:flex">
           <Link
             to="/mood-selection"
-            className={`mx-2 text-gray-700 hover:text-blue-600 ${
+            className={`mx-2 my-auto text-gray-700 hover:text-blue-600 ${
               location.pathname === '/mood-selection' ? 'font-bold' : ''
             }`}
           >
@@ -41,7 +41,7 @@ function Navbar() {
           </Link>
           <Link
             to="/resources"
-            className={`mx-2 text-gray-700 hover:text-blue-600 ${
+            className={`mx-2 my-auto text-gray-700 hover:text-blue-600 ${
               location.pathname === '/resources' ? 'font-bold' : ''
             }`}
           >
@@ -49,7 +49,7 @@ function Navbar() {
           </Link>
           <Link
             to="/mood-tracker"
-            className={`mx-2 text-gray-700 hover:text-blue-600 ${
+            className={`mx-2 my-auto text-gray-700 hover:text-blue-600 ${
               location.pathname === '/mood-tracker' ? 'font-bold' : ''
             }`}
           >
@@ -57,7 +57,7 @@ function Navbar() {
           </Link>
           <Link
             to="/record-history"
-            className={`mx-2 text-gray-700 hover:text-blue-600 ${
+            className={`mx-2 my-auto text-gray-700 hover:text-blue-600 ${
               location.pathname === '/record-history' ? 'font-bold' : ''
             }`}
           >
