@@ -6,7 +6,7 @@ function ComingSoon() {
       <h1 className="text-4xl font-bold text-gray-700 mb-4">
         Coming Soon
       </h1>
-      <p className="text-xl text-gray-600">
+      <p className="text-xl text-gray-600 p-4 text-center">
         This feature is not yet available, but stay tuned for updates!
       </p>
     </div>
