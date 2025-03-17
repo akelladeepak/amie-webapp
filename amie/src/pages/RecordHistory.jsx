@@ -173,7 +173,7 @@ function RecordHistory({ moodLogs }) {
             to="/mood-tracker"
             className="text-blue-600 cursor-pointer relative group inline-block"
           >
-            Back to Mood Tracker →
+            Visit Mood Tracker →
             <span className="absolute left-0 bottom-0 h-0.5 w-0 bg-blue-600"></span>
           </Link>
         </div>
