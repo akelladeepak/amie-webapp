@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function Resources() {
   return (
     <div className="min-h-screen flex flex-col items-center py-10">
-      <h1 className="text-[28px] lg:text-5xl font-bold text-gray-700 mb-16 text-center">
+      <h1 className="text-[28px] lg:text-5xl font-bold text-gray-700 mb-16 text-center mt-4">
         Emotional Skills & Resources
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl w-full px-4">

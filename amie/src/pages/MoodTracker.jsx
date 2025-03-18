@@ -274,7 +274,7 @@ function MoodTracker({ moodLogs }) {
     // Render the year view
     return (
       <div className="min-h-screen flex flex-col items-center py-10 px-4">
-        <h1 className="text-3xl md:text-5xl font-bold text-gray-700 mb-6">
+        <h1 className="text-3xl md:text-5xl font-bold text-gray-700 mb-6 mt-4">
           Mood Tracker
         </h1>
         {/* Header for year view with overall mood and view type dropdown */}

@@ -168,7 +168,7 @@ function RecordHistory({ moodLogs }) {
       <div className="max-w-3xl mx-auto">
         {/* Header: Title + Back Button */}
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold ">Your Mood History</h1>
+          <h1 className="text-3xl font-bold mt-4">Your Mood History</h1>
           <Link
             to="/mood-tracker"
             className="text-blue-600 cursor-pointer relative group inline-block"
