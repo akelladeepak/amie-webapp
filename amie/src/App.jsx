@@ -1,4 +1,4 @@
-// App.js
+// App.jsx
 import React, { useState } from 'react';
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -9,6 +9,7 @@ import Resources from './pages/Resources';
 import MoodTracker from './pages/MoodTracker';
 import RecordHistory from './pages/RecordHistory';
 import ComingSoon from './pages/ComingSoon';
+import LandingPage from './pages/LandingPage';
 
 // Import Navbar
 import Navbar from './components/Navbar';
@@ -21,7 +22,13 @@ function App() {
     <Router>
       <div className="min-h-screen bg-gradient-to-tr from-[#cdffd8] via-purple-100 to-[#94b9ff]">
         <Routes>
-          <Route path="/" element={<Login />} />
+          {/* Landing page at "/" */}
+          <Route path="/" element={<LandingPage />} />
+
+          {/* If you want your old login at "/login" */}
+          <Route path="/login" element={<Login />} />
+
+          {/* For the rest of the tool pages */}
           <Route
             path="/*"
             element={
@@ -29,7 +36,6 @@ function App() {
                 <Navbar />
                 <div className="pt-16">
                   <Routes>
-                    {/* Pass moodLogs and setMoodLogs to pages that need them */}
                     <Route
                       path="/mood-selection"
                       element={
@@ -40,8 +46,10 @@ function App() {
                       }
                     />
                     <Route path="/resources" element={<Resources />} />
-                    {/* Pass moodLogs to MoodTracker */}
-                    <Route path="/mood-tracker" element={<MoodTracker moodLogs={moodLogs} />} />
+                    <Route
+                      path="/mood-tracker"
+                      element={<MoodTracker moodLogs={moodLogs} />}
+                    />
                     <Route
                       path="/record-history"
                       element={<RecordHistory moodLogs={moodLogs} />}

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import '../assets/styles.css'
+import '../assets/styles.css';
 
-function Navbar() {
+const Navbar = () => {
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -10,8 +10,10 @@ function Navbar() {
     <nav className="fixed top-0 left-0 w-full bg-white shadow z-50">
       <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
         <Link to="/mood-selection">
-          <h1 className='logo'>Amie</h1>
-          <p className='-mt-3 text-blue-950/80 text-xs'>Emotional & Mental Health Assistant</p>
+          <h1 className="logo">Amie</h1>
+          <p className="-mt-3 text-blue-950/80 text-xs">
+            Emotional &amp; Mental Health Assistant
+          </p>
         </Link>
         {/* Hamburger menu button for mobile */}
         <div className="md:hidden">
@@ -125,6 +127,6 @@ function Navbar() {
       )}
     </nav>
   );
-}
+};
 
 export default Navbar;
