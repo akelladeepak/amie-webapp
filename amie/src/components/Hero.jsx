@@ -1,5 +1,5 @@
 import React from 'react';
-import meditation from '../assets/meditation.png';
+import meditation from '../assets/meditation2.png';
 import '../assets/styles.css';
 
 const Hero = () => {
@@ -26,7 +26,7 @@ const Hero = () => {
           <img
             src={meditation}
             alt="Meditation illustration"
-            className="w-full max-w-md"
+            className="w-full fill-transparent"
           />
         </div>
       </div>
