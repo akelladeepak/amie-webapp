@@ -5,7 +5,7 @@ import '../assets/styles.css';
 const Hero = () => {
   return (
     <section className="bg-light-blue py-20 z-20">
-      <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center">
+      <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center mt-0 lg:mt-8">
         {/* Left Column: Text */}
         <div className="md:w-1/2 mb-8 md:mb-0">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1d3557]">
@@ -26,7 +26,7 @@ const Hero = () => {
           <img
             src={meditation}
             alt="Meditation illustration"
-            className="w-full fill-transparent"
+            className="w-full"
           />
         </div>
       </div>
