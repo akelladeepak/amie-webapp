@@ -36,16 +36,16 @@ const Faq = () => {
   };
 
   return (
-    <section className="bg-[#0A9396] py-20 h-screen">
+    <section className="bg-transparent py-20 h-screen">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10 text-soft-white">
+        <h2 className="text-3xl font-bold text-center mb-10 text-dark-blue">
           Frequently Asked Questions
         </h2>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <div key={index} className="border-b border-gray-200 pb-4">
               <button
-                className="flex justify-between w-full text-left text-soft-white"
+                className="flex justify-between w-full text-left text-dark-blue"
                 onClick={() => toggleFAQ(index)}
               >
                 <span className="font-medium">{faq.question}</span>
@@ -54,7 +54,7 @@ const Faq = () => {
                 </span>
               </button>
               {activeIndex === index && (
-                <p className="mt-2 text-soft-white">{faq.answer}</p>
+                <p className="mt-2 text-dark-blue">{faq.answer}</p>
               )}
             </div>
           ))}

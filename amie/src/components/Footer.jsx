@@ -2,18 +2,18 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0A9396] py-10">
+    <footer className="bg-transparent py-10">
       <div className="max-w-7xl mx-auto px-4">
         {/* Stay in contact section */}
         <div className="flex flex-col md:flex-row items-center justify-between mb-8">
-          <h3 className="text-xl font-semibold mb-4 md:mb-0 text-soft-white">
+          <h3 className="text-xl font-semibold mb-4 md:mb-0 text-dark-blue">
             Stay in contact
           </h3>
           <div className="flex">
             <input
               type="email"
               placeholder="Email Address"
-              className="border border-soft-white px-4 py-2 rounded-l-md focus:outline-none text-soft-white"
+              className="border border-dark-blue px-4 py-2 rounded-l-md focus:outline-none text-dark-blue"
             />
             <button className="bg-dark-blue text-soft-white px-6 py-2 rounded-r-md hover:bg-blue-700 transition-colors">
               Subscribe
@@ -22,7 +22,7 @@ const Footer = () => {
         </div>
 
         {/* Footer links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-soft-white">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-dark-blue">
           <div>
             <h4 className="font-semibold mb-2">Company</h4>
             <ul className="space-y-1">

@@ -6,7 +6,7 @@ const SiteNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-[#f1faee] shadow">
+    <nav className="w-full bg-transparent">
       {/* Top bar: Logo, Desktop Menu, Book Demo, Mobile Hamburger */}
       <div className="max-w-7xl mx-auto px-4 py-2 flex items-center w-full">
         {/* Logo & Tagline on the left */}
@@ -21,16 +21,16 @@ const SiteNavbar = () => {
 
         {/* Desktop Menu: spread out the links across the middle */}
         <div className="hidden md:flex flex-1 justify-evenly items-center">
-          <Link to="/learn" className="text-gray-700 hover:text-[#55ab98]">
+          <Link to="/learn" className="text-gray-700 hover:text-green">
             Learn
           </Link>
-          <Link to="/business" className="text-gray-700 hover:text-[#55ab98]">
+          <Link to="/business" className="text-gray-700 hover:text-green">
             For Business
           </Link>
-          <Link to="/resources" className="text-gray-700 hover:text-[#55ab98]">
+          <Link to="/resources" className="text-gray-700 hover:text-green">
             Resources
           </Link>
-          <Link to="/about" className="text-gray-700 hover:text-[#55ab98]">
+          <Link to="/about" className="text-gray-700 hover:text-green">
             About
           </Link>
         </div>
@@ -39,14 +39,14 @@ const SiteNavbar = () => {
         <div className="hidden md:flex ml-4">
           <Link
             to="/login"
-            className="text-dark-blue px-4 py-2 mr-4 rounded-full hover:bg-[#55ab98] hover:text-soft-white transition-colors border border-dark-blue"
+            className="text-dark-blue px-4 py-2 mr-4 rounded-full hover:bg-green hover:text-soft-white transition-colors border border-dark-blue"
           >
             Sign in
           </Link>
 
           <Link
             to="/login"
-            className="bg-[#1d3557] text-white px-4 py-2 rounded-full hover:bg-[#55ab98] transition-colors"
+            className="bg-dark-blue text-white px-4 py-2 rounded-full hover:bg-green transition-colors"
           >
             Sign Up
           </Link>
@@ -87,38 +87,38 @@ const SiteNavbar = () => {
 
       {/* Mobile Menu (collapsible) */}
       {isOpen && (
-        <div className="md:hidden bg-[#f1faee] px-4 py-2 text-center font-bold">
+        <div className="md:hidden bg-transparent px-4 py-2 text-center font-bold">
           <Link
             to="/learn"
-            className="block text-gray-700 hover:text-[#55ab98] mb-4"
+            className="block text-gray-700 hover:text-green mb-4"
             onClick={() => setIsOpen(false)}
           >
             Learn
           </Link>
           <Link
             to="/business"
-            className="block text-gray-700 hover:text-[#55ab98] my-4"
+            className="block text-gray-700 hover:text-green my-4"
             onClick={() => setIsOpen(false)}
           >
             For Business
           </Link>
           <Link
             to="/resources"
-            className="block text-gray-700 hover:text-[#55ab98] my-4"
+            className="block text-gray-700 hover:text-green my-4"
             onClick={() => setIsOpen(false)}
           >
             Resources
           </Link>
           <Link
             to="/about"
-            className="block text-gray-700 hover:text-[#55ab98] my-4"
+            className="block text-gray-700 hover:text-green my-4"
             onClick={() => setIsOpen(false)}
           >
             About
           </Link>
           <Link
             to="/login"
-            className="block border border-[#1d3557] text-[#1d3557] hover:text-soft-white px-4 py-2 my-4 mx-auto rounded-full hover:bg-[#55ab98] w-1/4"
+            className="block border border-dark-blue text-dark-blue hover:text-soft-white px-4 py-2 my-4 mx-auto rounded-full hover:bg-green w-1/4"
             onClick={() => setIsOpen(false)}
           >
             Sign in
@@ -126,7 +126,7 @@ const SiteNavbar = () => {
           
           <Link
             to="/login"
-            className="block bg-[#1d3557] text-[#f1faee] px-4 py-2 my-4 mx-auto rounded-full hover:bg-[#55ab98] w-1/4"
+            className="block bg-dark-blue text-soft-white px-4 py-2 my-4 mx-auto rounded-full hover:bg-green w-1/4"
             onClick={() => setIsOpen(false)}
           >
             Sign up

@@ -8,9 +8,9 @@ const testimonials = [
 
 const Testimonials = () => {
   return (
-    <section className="bg-[#0A9396] py-20 h-screen">
+    <section className="bg-transparent py-20 h-screen">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10 text-soft-white">
+        <h2 className="text-3xl font-bold text-center mb-10 text-dark-blue">
           What our Members Love
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

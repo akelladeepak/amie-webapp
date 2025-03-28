@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 w-full bg-white shadow z-50">
+    <nav className="fixed top-0 left-0 w-full bg-transparent z-50">
       <div className="max-w-7xl mx-auto px-4 py-2 flex items-center justify-between">
         <Link to="/mood-selection">
           <h1 className="logo">Amie</h1>
