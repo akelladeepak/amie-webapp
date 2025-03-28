@@ -20,7 +20,7 @@ function App() {
 
   return (
     <Router>
-      <div className="min-h-screen bg-[#94D2BD]">
+      <div className="min-h-screen bg-gradient-to-tr from-[#cdffd8] via-purple-100 to-[#94b9ff]">
         <Routes>
           {/* Landing page at "/" */}
           <Route path="/" element={<LandingPage />} />

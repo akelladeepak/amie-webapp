@@ -21,16 +21,16 @@ const SiteNavbar = () => {
 
         {/* Desktop Menu: spread out the links across the middle */}
         <div className="hidden md:flex flex-1 justify-evenly items-center">
-          <Link to="/learn" className="text-gray-700 hover:text-blue-600">
+          <Link to="/learn" className="text-gray-700 hover:text-[#55ab98]">
             Learn
           </Link>
-          <Link to="/business" className="text-gray-700 hover:text-blue-600">
+          <Link to="/business" className="text-gray-700 hover:text-[#55ab98]">
             For Business
           </Link>
-          <Link to="/resources" className="text-gray-700 hover:text-blue-600">
+          <Link to="/resources" className="text-gray-700 hover:text-[#55ab98]">
             Resources
           </Link>
-          <Link to="/about" className="text-gray-700 hover:text-blue-600">
+          <Link to="/about" className="text-gray-700 hover:text-[#55ab98]">
             About
           </Link>
         </div>
@@ -38,10 +38,17 @@ const SiteNavbar = () => {
         {/* Book a Demo button on the right */}
         <div className="hidden md:flex ml-4">
           <Link
-            to="/book-demo"
+            to="/login"
+            className="text-dark-blue px-4 py-2 mr-4 rounded-full hover:bg-[#55ab98] hover:text-soft-white transition-colors border border-dark-blue"
+          >
+            Sign in
+          </Link>
+
+          <Link
+            to="/login"
             className="bg-[#1d3557] text-white px-4 py-2 rounded-full hover:bg-[#55ab98] transition-colors"
           >
-            Book a Demo
+            Sign Up
           </Link>
         </div>
 
@@ -83,38 +90,46 @@ const SiteNavbar = () => {
         <div className="md:hidden bg-[#f1faee] px-4 py-2 text-center font-bold">
           <Link
             to="/learn"
-            className="block text-gray-700 hover:text-blue-600 mb-4"
+            className="block text-gray-700 hover:text-[#55ab98] mb-4"
             onClick={() => setIsOpen(false)}
           >
             Learn
           </Link>
           <Link
             to="/business"
-            className="block text-gray-700 hover:text-blue-600 my-4"
+            className="block text-gray-700 hover:text-[#55ab98] my-4"
             onClick={() => setIsOpen(false)}
           >
             For Business
           </Link>
           <Link
             to="/resources"
-            className="block text-gray-700 hover:text-blue-600 my-4"
+            className="block text-gray-700 hover:text-[#55ab98] my-4"
             onClick={() => setIsOpen(false)}
           >
             Resources
           </Link>
           <Link
             to="/about"
-            className="block text-gray-700 hover:text-blue-600 my-4"
+            className="block text-gray-700 hover:text-[#55ab98] my-4"
             onClick={() => setIsOpen(false)}
           >
             About
           </Link>
           <Link
-            to="/book-demo"
-            className="block bg-[#1d3557] text-[#f1faee] px-4 py-2 my-4 mx-auto rounded-full hover:bg-blue-700 w-1/2"
+            to="/login"
+            className="block border border-[#1d3557] text-[#1d3557] hover:text-soft-white px-4 py-2 my-4 mx-auto rounded-full hover:bg-[#55ab98] w-1/4"
             onClick={() => setIsOpen(false)}
           >
-            Book a Demo
+            Sign in
+          </Link>
+          
+          <Link
+            to="/login"
+            className="block bg-[#1d3557] text-[#f1faee] px-4 py-2 my-4 mx-auto rounded-full hover:bg-[#55ab98] w-1/4"
+            onClick={() => setIsOpen(false)}
+          >
+            Sign up
           </Link>
         </div>
       )}
