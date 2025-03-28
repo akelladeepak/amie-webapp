@@ -6,7 +6,7 @@ const SiteNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="w-full bg-white shadow">
+    <nav className="w-full bg-[#f1faee] shadow">
       {/* Top bar: Logo, Desktop Menu, Book Demo, Mobile Hamburger */}
       <div className="max-w-7xl mx-auto px-4 py-2 flex items-center w-full">
         {/* Logo & Tagline on the left */}
@@ -39,7 +39,7 @@ const SiteNavbar = () => {
         <div className="hidden md:flex ml-4">
           <Link
             to="/book-demo"
-            className="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700"
+            className="bg-[#1d3557] text-white px-4 py-2 rounded-full hover:bg-[#55ab98] transition-colors"
           >
             Book a Demo
           </Link>
@@ -80,38 +80,38 @@ const SiteNavbar = () => {
 
       {/* Mobile Menu (collapsible) */}
       {isOpen && (
-        <div className="md:hidden bg-white shadow px-4 py-2">
+        <div className="md:hidden bg-[#f1faee] px-4 py-2 text-center font-bold">
           <Link
             to="/learn"
-            className="block text-gray-700 hover:text-blue-600 mb-2"
+            className="block text-gray-700 hover:text-blue-600 mb-4"
             onClick={() => setIsOpen(false)}
           >
             Learn
           </Link>
           <Link
             to="/business"
-            className="block text-gray-700 hover:text-blue-600 mb-2"
+            className="block text-gray-700 hover:text-blue-600 my-4"
             onClick={() => setIsOpen(false)}
           >
             For Business
           </Link>
           <Link
             to="/resources"
-            className="block text-gray-700 hover:text-blue-600 mb-2"
+            className="block text-gray-700 hover:text-blue-600 my-4"
             onClick={() => setIsOpen(false)}
           >
             Resources
           </Link>
           <Link
             to="/about"
-            className="block text-gray-700 hover:text-blue-600 mb-2"
+            className="block text-gray-700 hover:text-blue-600 my-4"
             onClick={() => setIsOpen(false)}
           >
             About
           </Link>
           <Link
             to="/book-demo"
-            className="block bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700"
+            className="block bg-[#1d3557] text-[#f1faee] px-4 py-2 my-4 mx-auto rounded-full hover:bg-blue-700 w-1/2"
             onClick={() => setIsOpen(false)}
           >
             Book a Demo

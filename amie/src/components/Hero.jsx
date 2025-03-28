@@ -4,19 +4,19 @@ import '../assets/styles.css';
 
 const Hero = () => {
   return (
-    <section className="bg-[#94D2BD] py-20 z-20">
+    <section className="bg-light-blue py-20 z-20">
       <div className="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center">
         {/* Left Column: Text */}
         <div className="md:w-1/2 mb-8 md:mb-0">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-[#1d3557]">
             Gain tools to control<br />
             your mindfulness
           </h1>
-          <p className="text-lg md:text-xl mb-6 text-white">
+          <p className="text-lg md:text-xl mb-6 text-[#1d3557]">
             Feel like your best self. Learn the tools<br />
             to gain emotional balance and peace.
           </p>
-          <button className="bg-[#02C39A] text-white px-6 py-3 rounded-3xl shadow hover:bg-[#55ab98] transition-colors">
+          <button className="bg-[#1d3557] text-[#f1faee] px-6 py-3 rounded-3xl shadow hover:bg-[#55ab98] transition-colors">
             Request Demo
           </button>
         </div>
