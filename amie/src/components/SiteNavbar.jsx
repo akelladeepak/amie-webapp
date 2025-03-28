@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import '../assets/styles.css';
 
 const SiteNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -11,7 +12,7 @@ const SiteNavbar = () => {
         {/* Logo & Tagline on the left */}
         <div className="flex-shrink-0">
           <Link to="/">
-            <h1 className="text-2xl font-bold text-blue-700">Amie</h1>
+            <h1 className="text-2xl logo">Amie</h1>
             <p className="-mt-1 text-xs text-blue-950/80">
               Emotional &amp; Mental Health Assistant
             </p>
