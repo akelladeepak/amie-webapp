@@ -1,11 +1,18 @@
 @import "tailwindcss";
 
+
+@font-face {
+  font-family: Lexend;
+  src: url('./Lexend/Lexend-VariableFont_wght.ttf');
+}
+
 @theme {
-  --color-light-blue: transparent;
-  --color-dark-blue: #1d3557;
+  --color-light-blue: #8ecae6;
+  --color-mid-blue: #126782;
+  --color-dark-blue: #023047;
   --color-soft-white: #f1faee;
-  --color-fancy-red: #e63946;
-  --color-green: #55ab98;
+  --color-orange: #FFB703;
+  --color-deep-orange: #FB8500;
 }
 
 
@@ -20,10 +27,34 @@
 
 .logo {
     font-size: 2.5rem;
-    background: linear-gradient(45deg, #0056b3, #89cfff);
+    background: linear-gradient(45deg, #126782, #023047);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;
-    font-weight: bold;
+    font-weight: 400;
+    font-family: "Lexend";
+}
+
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 133px;
+  transform: rotateY(180deg);
+}
+
+.wave .shape-fill {
+  fill: #126782;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import meditation from '../assets/meditation2.png';
+import meditation from '../assets/meditate.png';
 import '../assets/styles.css';
 
 const Hero = () => {
@@ -27,6 +27,7 @@ const Hero = () => {
             src={meditation}
             alt="Meditation illustration"
             className="w-full"
+            draggable={false}
           />
         </div>
       </div>

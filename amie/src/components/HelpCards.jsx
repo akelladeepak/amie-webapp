@@ -12,10 +12,10 @@ const helpItems = [
 
 const HelpCards = () => {
   return (
-    <section className=" py-20 h-screen relative overflow-clip">
-      <div className='bg-bg-gradient-to-tr from-[#cdffd8] via-purple-100 to-[#94b9ff] w-full h-24 rounded-[50%] absolute -top-12'></div>
+    <section className=" py-20 h-screen relative overflow-clip bg-mid-blue">
+      <div className='bg-light-blue w-full h-24 rounded-[50%] absolute -top-12'></div>
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-10 mt-8 text-dark-blue">How can we help?</h2>
+        <h2 className="text-4xl font-bold text-center mb-10 mt-8 text-soft-white">How can we help?</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-24">
           {helpItems.map((item, index) => (
             <div
